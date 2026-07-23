@@ -1,0 +1,18 @@
+.button {
+  padding: 12px 24px;
+  border-radius: $radius;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+
+  &--primary {
+    background: $primary-color;
+    color: white;
+  }
+
+  &--secondary {
+    background: transparent;
+    border: 2px solid $primary-color;
+    color: $primary-color;
+  }
+}

@@ -1,0 +1,145 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+
+.hero {
+
+  @include container;
+
+  min-height: calc(100vh - 80px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 40px;
+
+  padding: 40px 0;
+
+
+  &__content {
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+  }
+
+
+  &__greeting {
+
+    color: $primary-color;
+    font-weight: 600;
+
+  }
+
+
+  &__title {
+
+    font-size: 2.2rem;
+    line-height: 1.2;
+
+  }
+
+
+  &__description {
+
+    line-height: 1.6;
+    color: $text-color;
+
+  }
+
+
+  &__buttons {
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+  }
+
+
+  &__image {
+
+    display: flex;
+    justify-content: center;
+
+  }
+
+
+  &__image-placeholder {
+
+    width: 220px;
+    height: 220px;
+
+    border-radius: 50%;
+
+    background-color: $gray-color;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+
+
+  // TABLET
+
+  @include tablet {
+
+
+    flex-direction: row;
+    align-items: center;
+
+
+    &__content {
+
+      flex: 1;
+
+    }
+
+
+    &__image {
+
+      flex: 1;
+
+    }
+
+
+    &__buttons {
+
+      flex-direction: row;
+
+    }
+
+
+  }
+
+
+
+  // DESKTOP
+
+  @include desktop {
+
+
+    gap: 80px;
+
+
+    &__title {
+
+      font-size: 3.5rem;
+
+    }
+
+
+    &__image-placeholder {
+
+      width: 350px;
+      height: 350px;
+
+    }
+
+  }
+
+}
