@@ -1,0 +1,89 @@
+@use "../../styles/variables" as *;
+
+.mobileOverlay{
+
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.35);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.3s;
+
+    z-index:998;
+
+}
+
+.mobileOverlay--show{
+
+    opacity:1;
+    visibility:visible;
+
+}
+
+.mobileMenu{
+
+    position:fixed;
+
+    top:0;
+    left:-280px;
+
+    width:280px;
+    height:100vh;
+
+    background:$light-color;
+
+    transition:.35s;
+
+    z-index:999;
+
+    padding:40px 30px;
+
+    display:flex;
+    flex-direction:column;
+
+}
+
+.mobileMenu--open{
+
+    left:0;
+
+}
+
+.mobileMenu__close{
+
+    align-self:flex-end;
+
+    border:none;
+    background:none;
+
+    font-size:1.5rem;
+
+    cursor:pointer;
+
+}
+
+.mobileMenu__nav{
+
+    margin-top:50px;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:30px;
+
+}
+
+.mobileMenu__nav a{
+
+    text-decoration:none;
+
+    color:$dark-color;
+
+    font-size:1.1rem;
+
+    font-weight:500;
+
+}

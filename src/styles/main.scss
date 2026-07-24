@@ -4,3 +4,7 @@
 @use "./variables";
 @use "./mixins";
 @use "./reset";
+html,
+body {
+  overflow-x: hidden;
+}
