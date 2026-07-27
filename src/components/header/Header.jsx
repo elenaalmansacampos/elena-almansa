@@ -10,7 +10,6 @@ function Header() {
     <>
       <header className="header">
         <div className="header__container">
-
           {/* Menú hamburguesa (solo móvil) */}
           <button
             className="header__menuButton"
@@ -27,10 +26,13 @@ function Header() {
 
           {/* Navegación Desktop */}
           <nav className="header__nav">
-            <a href="#home">Inicio</a>
-            <a href="#about">Sobre mí</a>
-            <a href="#projects">Proyectos</a>
-            <a href="#contact">Contacto</a>
+            <Link to="/">Inicio</Link>
+
+            <Link to="/about">Sobre mí</Link>
+
+            <Link to="/projects">Proyectos</Link>
+
+            <Link to="/contact">Contacto</Link>
           </nav>
 
           {/* Avatar */}
@@ -39,19 +41,12 @@ function Header() {
             className="header__avatar"
             aria-label="Iniciar sesión"
           >
-            <img
-              src="/elena.png"
-              alt="Elena Almansa"
-            />
+            <img src="/elena.png" alt="Elena Almansa" />
           </Link>
-
         </div>
       </header>
 
-      <MobileMenu
-        isOpen={menuOpen}
-        onClose={() => setMenuOpen(false)}
-      />
+      <MobileMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
     </>
   );
 }

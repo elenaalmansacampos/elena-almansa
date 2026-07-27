@@ -1,4 +1,5 @@
 import "./ProjectCard.scss";
+import portfolioImage from "../../assets/images/portofolio.png";
 
 function ProjectCard({ project }) {
   const technologies = project.technologies
@@ -13,7 +14,7 @@ function ProjectCard({ project }) {
           src={
             project.imageUrl?.startsWith("http")
               ? project.imageUrl
-              : "/images/portfolio.png"
+              : portfolioImage
           }
           alt={project.title}
         />

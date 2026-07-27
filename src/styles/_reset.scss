@@ -14,9 +14,14 @@ html {
 
 
 body {
-  font-family: $font-main;
+  font-family: $font-body;
   color: $text-color;
   background-color: $background-color;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-heading;
 }
 
 

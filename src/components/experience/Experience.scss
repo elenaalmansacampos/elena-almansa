@@ -1,0 +1,88 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.experience {
+
+  background: #f7f8fb;
+
+  padding: 100px 0;
+
+  &__container {
+
+    @include container;
+
+  }
+
+  h2 {
+
+    text-align: center;
+
+    font-size: 2.4rem;
+
+    margin-bottom: 12px;
+
+    color: #111;
+
+  }
+
+  &__subtitle {
+
+    text-align: center;
+
+    color: #666;
+
+    margin-bottom: 80px;
+
+  }
+
+  &__timeline {
+
+    position: relative;
+
+    padding-left: 35px;
+
+  }
+
+  &__timeline::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 6px;
+
+    top: 0;
+
+    bottom: 0;
+
+    width: 2px;
+
+    background: #2563eb;
+
+  }
+
+}
+
+/* ---------- DESKTOP ---------- */
+
+@include desktop {
+
+  .experience {
+
+    &__timeline {
+
+      padding-left: 0;
+
+    }
+
+    &__timeline::before {
+
+      left: 50%;
+
+      transform: translateX(-50%);
+
+    }
+
+  }
+
+}

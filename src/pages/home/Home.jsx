@@ -1,7 +1,11 @@
 import "./Home.scss";
+import Button from "../../components/button/Button";
 import ProjectList from "../../components/projects/ProjectList";
 import TechCard from "../../components/tech/TechCard";
-import elenaImage from "../../assets/elenaBW.jpg";
+import Tag from "../../components/tag/Tag";
+import Contact from "../../components/contact/Contact";
+import Experience from "../../components/experience/Experience";
+import elenaImage from "../../assets/bk-elena-01.jpg";
 import {
   FaHtml5,
   FaCss3Alt,
@@ -31,13 +35,13 @@ function Home() {
           </p>
 
           <div className="hero__buttons">
-            <a href="#projects" className="button button--primary">
+            <Button variant="primary" href="#projects">
               Ver proyectos
-            </a>
+            </Button>
 
-            <a href="#contact" className="button button--secondary">
+            <Button variant="secondary" href="#contact">
               Contactar
-            </a>
+            </Button>
           </div>
         </div>
       </section>
@@ -49,6 +53,10 @@ function Home() {
           <div className="about__image-bg"></div>
 
           <img src={elenaImage} alt="Elena Almansa" />
+
+          <Tag>
+            20+ <br></br>años de experiencia
+          </Tag>
         </div>
 
         <div className="about__content">
@@ -57,8 +65,8 @@ function Home() {
           <p>
             Soy Webmaster con más de 20 años de experiencia en desarrollo,
             mantenimiento y gestión de sitios web corporativos. Actualmente
-            estoy ampliando mi perfil como desarrolladora Full Stack Java
-            creando aplicaciones web completas.
+            estoy ampliando mi perfil como desarrolladora Full Stack creando
+            aplicaciones web completas.
           </p>
 
           <p>
@@ -72,74 +80,51 @@ function Home() {
 
       {/* STACK */}
 
-<section className="stack">
+      <section className="stack">
+        <div className="stack__header">
+          <h2>Stack tecnológico</h2>
 
-  <div className="stack__header">
+          <p>
+            Herramientas y lenguajes que domino para construir el futuro
+            digital.
+          </p>
+        </div>
 
-    <h2>
-      Stack tecnológico
-    </h2>
+        <div className="stack__cards">
+          <TechCard name="HTML" icon={<FaHtml5 />} />
 
-    <p>
-      Herramientas y lenguajes que domino para construir el futuro digital.
-    </p>
+          <TechCard name="CSS" icon={<FaCss3Alt />} />
 
-  </div>
+          <TechCard name="JavaScript" icon={<FaJs />} />
 
+          <TechCard name="React" icon={<FaReact />} />
 
-  <div className="stack__cards">
+          <TechCard name="Java" icon={<FaJava />} />
 
-    <TechCard 
-      name="HTML" 
-      icon={<FaHtml5 />} 
-    />
+          <TechCard name="Spring Boot" icon={<SiSpringboot />} />
 
-    <TechCard 
-      name="CSS" 
-      icon={<FaCss3Alt />} 
-    />
+          <TechCard name="PostgreSQL" icon={<SiPostgresql />} />
 
-    <TechCard 
-      name="JavaScript" 
-      icon={<FaJs />} 
-    />
-
-    <TechCard 
-      name="React" 
-      icon={<FaReact />} 
-    />
-
-    <TechCard 
-      name="Java" 
-      icon={<FaJava />} 
-    />
-
-    <TechCard 
-      name="Spring Boot" 
-      icon={<SiSpringboot />} 
-    />
-
-    <TechCard 
-      name="PostgreSQL" 
-      icon={<SiPostgresql />} 
-    />
-
-    <TechCard 
-      name="GitHub" 
-      icon={<FaGithub />} 
-    />
-
-  </div>
-
-</section>
+          <TechCard name="GitHub" icon={<FaGithub />} />
+        </div>
+      </section>
 
       {/* PROJECTS */}
 
       <section id="projects" className="projects">
-        <h2>Proyectos destacados</h2>
+        <div className="projects__container">
+          <h2>Proyectos destacados</h2>
 
-        <ProjectList />
+          <ProjectList />
+        </div>
       </section>
+      <ProjectList />
+
+      <Experience />
+
+      
+
+      <Contact />
     </>
   );
 }
