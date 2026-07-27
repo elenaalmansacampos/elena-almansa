@@ -48,9 +48,9 @@ function Home() {
 
       {/* ABOUT */}
 
-      <section className="about">
-        <div className="about__image">
-          <div className="about__image-bg"></div>
+      <section className="home-about">
+        <div className="home-about__image">
+          <div className="home-about__image-bg"></div>
 
           <img src={elenaImage} alt="Elena Almansa" />
 
@@ -59,7 +59,7 @@ function Home() {
           </Tag>
         </div>
 
-        <div className="about__content">
+        <div className="home-about__content">
           <h2>Acerca de mí</h2>
 
           <p>

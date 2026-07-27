@@ -8,38 +8,63 @@
 
 .about {
 
-  width: 100%;
-  padding: 2rem 1.2rem;
+  width:100%;
+  padding:2rem 1.2rem;
 
 }
 
 
 
 // ==========================
-// HERO MOBILE
+// TITLE DESKTOP
+// ==========================
+
+.about__title {
+
+  display:none;
+
+
+  span {
+
+    color:#2563eb;
+
+  }
+
+}
+
+
+
+// ==========================
+// HERO
 // ==========================
 
 .about__hero {
 
-  display: flex;
-  flex-direction: column;
+  display:flex;
 
-  align-items: center;
+  flex-direction:column;
 
-  gap: 2rem;
+  gap:2rem;
 
-  margin-bottom: 4rem;
+  margin-bottom:4rem;
 
 }
 
 
 
+// ==========================
+// IMAGE
+// ==========================
+
 .about__image-wrapper {
 
-  position: relative;
+  position:relative;
 
-  width: 100%;
-  max-width: 360px;
+  width:100%;
+
+  max-width:360px;
+
+  margin:0 auto;
 
 }
 
@@ -47,37 +72,36 @@
 
 .about__image {
 
-  width: 100%;
+  width:100%;
 
-  height: 480px;
+  height:480px;
 
-  object-fit: cover;
+  object-fit:cover;
 
-  object-position: center top;
+  object-position:center top;
 
-  border-radius: 28px;
+  border-radius:28px;
 
 }
 
 
 
-// degradado inferior para texto
-
 .about__image-wrapper::after {
 
-  content: "";
+  content:"";
 
-  position: absolute;
+  position:absolute;
 
-  inset: 0;
+  inset:0;
 
-  border-radius: 28px;
+  border-radius:28px;
+
 
   background:
-    linear-gradient(
-      transparent 45%,
-      rgba(0,0,0,.65)
-    );
+  linear-gradient(
+    transparent 45%,
+    rgba(0,0,0,.65)
+  );
 
 }
 
@@ -85,43 +109,39 @@
 
 .about__image-text {
 
-  position: absolute;
+  position:absolute;
 
-  bottom: 2rem;
+  bottom:2rem;
 
-  left: 50%;
+  left:50%;
 
-  transform: translateX(-50%);
+  transform:translateX(-50%);
 
-  width: 90%;
-
-  text-align: center;
+  width:90%;
 
   color:white;
 
-  z-index:2;
+  text-align:center;
 
+  z-index:2;
 
 
   span {
 
     font-size:.85rem;
 
-    text-transform:uppercase;
-
     letter-spacing:2px;
+
+    text-transform:uppercase;
 
   }
 
 
-
   h1 {
 
-    margin-top:.5rem;
+    margin:.5rem 0 0;
 
     font-size:2.5rem;
-
-    line-height:1;
 
   }
 
@@ -129,16 +149,21 @@
 
 
 
-
-
 // ==========================
-// INTRO
+// TEXT
 // ==========================
+
+.about__hero-text {
+
+  display:flex;
+
+  flex-direction:column;
+
+}
+
 
 
 .about__intro {
-
-  max-width:500px;
 
   color:#555;
 
@@ -148,92 +173,154 @@
 
 }
 
-
-
-
-
 // ==========================
-// CONTENT
+// OBJECTIVE
 // ==========================
 
+.about__objective {
 
-.about__content {
-
-  display:flex;
-
-  flex-direction:column;
-
-  gap:1.5rem;
-
-}
-
-
-
-.about__block {
-
-  background:white;
-
-  padding:1.5rem;
-
-  border-radius:24px;
-
-
-  box-shadow:
-    0 10px 30px rgba(0,0,0,.05);
-
-
-
-  h2 {
-
-    font-size:1.3rem;
-
-    margin-bottom:1rem;
-
-  }
-
-
-
-  p {
-
-    color:#555;
-
-    line-height:1.6;
-
-  }
-
-}
-
-
-
-
-.about__technologies {
-
-  display:flex;
-
-  flex-wrap:wrap;
-
-  gap:.7rem;
-
-}
-
-
-
-
-.about__block--highlight {
+  margin-top:5rem;
 
   background:#111;
 
+  color:white;
+
+  border-radius:28px;
+
+  padding:2rem;
+
+
 
   h2 {
 
-    color:white;
+    margin:0 0 1rem;
+
+    font-size:1.8rem;
+
+  }
+
+
+
+  p {
+
+    margin:0;
+
+    color:#ddd;
+
+    line-height:1.7;
+
+    font-size:1rem;
+
+  }
+
+}
+
+// ==========================
+// STRENGTHS
+// ==========================
+
+.about__strengths {
+
+  display:grid;
+
+  grid-template-columns:1fr;
+
+  gap:1rem;
+
+}
+
+
+
+.about__card {
+
+  display:flex;
+
+  gap:1rem;
+
+  align-items:flex-start;
+
+
+  h3 {
+
+    margin:0 0 .5rem;
+
+    font-size:1.1rem;
 
   }
 
 
   p {
 
-    color:#ddd;
+    margin:0;
+
+    color:#555;
+
+    font-size:.9rem;
+
+    line-height:1.5;
+
+  }
+
+}
+
+
+
+.strength__icon {
+
+  flex-shrink:0;
+
+  font-size:2rem;
+
+  color:#2563eb;
+
+}
+
+
+
+// ==========================
+// CV
+// ==========================
+
+.about__cv {
+
+  display:inline-flex;
+
+  width:max-content;
+
+  margin-top:1.5rem;
+
+  padding:.9rem 1.8rem;
+
+  background:#000;
+
+  color:white;
+
+  border-radius:10px;
+
+  text-decoration:none;
+
+  font-weight:600;
+
+}
+
+
+
+// ==========================
+// EXPERIENCE
+// ==========================
+
+.about__experience {
+
+  margin-top:5rem;
+
+  text-align:center;
+
+
+  h2 {
+
+    font-size:2rem;
+
+    margin-bottom:2rem;
 
   }
 
@@ -245,13 +332,23 @@
 // TABLET
 // ==========================
 
-
 @include tablet {
 
 
   .about {
 
-    padding:3rem;
+    width:90%;
+
+    max-width:960px;
+
+    margin:auto;
+
+  }
+
+
+  .about__strengths {
+
+    grid-template-columns:repeat(2,1fr);
 
   }
 
@@ -264,7 +361,6 @@
 // DESKTOP
 // ==========================
 
-
 @include desktop {
 
 
@@ -272,38 +368,115 @@
 
     max-width:1200px;
 
-    margin:0 auto;
+    margin:auto;
 
     padding:5rem 0;
 
   }
 
+.about__objective {
+
+  padding:3rem 4rem;
+
+  border-radius:32px;
+
+  max-width:900px;
+
+  margin-left:auto;
+
+  margin-right:auto;
 
 
-  // HERO DESKTOP
+  h2 {
+
+    font-size:2.2rem;
+
+  }
+
+
+  p {
+
+    font-size:1.1rem;
+
+  }
+
+}
+
+
+
+  // HERO FOTO + TEXTO
 
   .about__hero {
 
 
     display:grid;
 
+
     grid-template-columns:
-    1fr 420px;
 
+    minmax(0,1fr) 420px;
 
-    align-items:center;
 
     gap:5rem;
 
 
-    margin-bottom:6rem;
+    align-items:start;
+
+
+    margin-bottom:3rem;
+
+  }
+
+
+
+
+
+  // TITULO VISIBLE DESKTOP
+
+  .about__title {
+
+    display:block;
+
+    font-size:4rem;
+
+    line-height:1;
+
+    font-weight:700;
+
+    margin:0 0 2rem;
 
 
   }
 
 
 
-  // imagen pasa a la derecha
+
+
+  .about__hero-text {
+
+    grid-column:1;
+
+    grid-row:1;
+
+  }
+
+
+
+
+
+  .about__intro {
+
+    font-size:1.1rem;
+
+    max-width:620px;
+
+  }
+
+
+
+
+
+  // IMAGEN DERECHA
 
   .about__image-wrapper {
 
@@ -313,11 +486,13 @@
     grid-row:1;
 
 
-    max-width:none;
-
     width:420px;
 
+    max-width:none;
+
   }
+
+
 
 
 
@@ -332,10 +507,14 @@
 
 
 
-  // texto debajo de la foto solo móvil
+
+
+  // QUITAR TEXTO SOBRE FOTO EN DESKTOP
 
   .about__image-wrapper::after,
+
   .about__image-text {
+
 
     display:none;
 
@@ -343,40 +522,56 @@
 
 
 
-  // texto de introducción ocupa izquierda
-
-  .about__intro {
-
-    max-width:560px;
-
-    font-size:1rem;
-
-  }
 
 
+  // FORTALEZAS ABAJO DEL TEXTO
 
-  // bloques inferiores
-
-  .about__content {
-
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(2,1fr);
+  .about__strengths {
 
 
-    gap:2rem;
+    grid-column:1;
+
+
+    width:620px;
+
+
+    grid-template-columns:repeat(2,1fr);
+
+
+    gap:1.5rem;
+
+
+    margin-bottom:2rem;
 
 
   }
 
 
 
-  .about__block {
 
 
-    padding:2rem;
+  .about__card {
+
+
+    min-height:120px;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+  }
+
+
+
+
+
+  .about__cv {
+
+
+    margin-top:0;
 
   }
 
