@@ -5,8 +5,6 @@ import { login } from "../../services/authService";
 
 import {
   FaArrowRight,
-  FaGoogle,
-  FaGithub,
   FaEye
 } from "react-icons/fa6";
 
@@ -232,68 +230,7 @@ function Login() {
 
 
 
-
         </form>
-
-
-
-
-
-        <div className="login__separator">
-
-
-          <span></span>
-
-
-
-          <p>
-            O CONTINÚA CON
-          </p>
-
-
-
-          <span></span>
-
-
-        </div>
-
-
-
-
-
-        <div className="login__social">
-
-
-          <button type="button">
-
-
-            <FaGoogle />
-
-
-            Google
-
-
-          </button>
-
-
-
-
-
-          <button type="button">
-
-
-            <FaGithub />
-
-
-            GitHub
-
-
-          </button>
-
-
-
-        </div>
-
 
 
 
