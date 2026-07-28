@@ -2,385 +2,213 @@
 @use "../../styles/mixins" as *;
 
 .hero {
-
   @include container;
 
   min-height: calc(100vh - 80px);
-
-  display:flex;
-  align-items:center;
-
-  padding:60px 0;
-
+  display: flex;
+  align-items: center;
+  padding: 60px 0;
 
   &__content {
-
-    max-width:850px;
-
-    display:flex;
-    flex-direction:column;
-
-    gap:24px;
-
+     font-size: 1.5rem;
+    max-width: 850px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
   }
-
 
   &__greeting {
-
-    color:$primary-color;
-
-    font-weight:600;
-
-    font-size:1.1rem;
-
+    color: $primary-color;
+    font-weight: 600;
+    font-size: 1.2rem;
   }
-
 
   &__title {
-
-    font-size:2.8rem;
-
-    line-height:1.1;
-
-    font-weight:800;
-
-    letter-spacing:-0.03em;
-
+    font-size: 2.8rem;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.03em;
   }
-
 
   &__description {
-
-    max-width:650px;
-
-    font-size:1.15rem;
-
-    line-height:1.7;
-
-    color:$text-color;
-
+    max-width: 650px;
+    font-size: 1.3rem;
+    line-height: 1.7;
+    color: $text-color;
   }
-
 
   &__buttons {
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:16px;
-
-    margin-top:20px;
-
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
   }
-
-
 
   @include tablet {
-
-
     &__title {
-
-      font-size:4rem;
-
+      font-size: 4rem;
     }
-
 
     &__buttons {
-
-      flex-direction:row;
-
+      flex-direction: row;
     }
-
   }
-
-
 
   @include desktop {
-
+    min-height: 0;
+    padding: 40px 0;
 
     &__title {
-
-      font-size:5rem;
-
-      max-width:900px;
-
+      font-size: 5rem;
+      max-width: 900px;
     }
-
 
     &__description {
-
-      font-size:1.25rem;
-
+      font-size: 1.35rem;
     }
-
   }
-
 }
 
 .home-about {
-
   @include container;
 
-  display:flex;
-  flex-direction:column;
-  gap:40px;
-
-  padding:80px 0;
-
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 80px 0;
+   font-size: 1.25rem;
 
   &__image {
-
-    position:relative;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     img {
-
-      width:260px;
-      height:320px;
-
-      object-fit:cover;
-
-      position:relative;
-      z-index:2;
-
-      border-radius:8px;
-
+      width: 260px;
+      height: 320px;
+      object-fit: cover;
+      position: relative;
+      z-index: 2;
+      border-radius: 8px;
     }
 
+    .tag {
+      position: absolute;
+      bottom: -45px;
+      right: 10px;
+      z-index: 3;
+    }
 
     &-bg {
-
-      position:absolute;
-
-      width:260px;
-      height:320px;
-
-      
-
-      top:25px;
-      left:calc(50% - 110px);
-
-      z-index:1;
-
+      position: absolute;
+      width: 260px;
+      height: 320px;
+      top: 25px;
+      left: calc(50% - 110px);
+      z-index: 1;
     }
-
   }
-
 
   &__content {
-
-    display:flex;
-    flex-direction:column;
-    gap:20px;
-
-    line-height:1.6;
-
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    line-height: 1.6;
   }
 
-
   @include tablet {
-
-    flex-direction:row;
-    align-items:center;
-
+    flex-direction: row;
+    align-items: center;
 
     &__image,
     &__content {
-
-      flex:1;
-
+      flex: 1;
     }
-
   }
-
 
   @include desktop {
-
-
     &__image {
-
-
       img,
       &-bg {
-
-        width:350px;
-        height:420px;
-
+        width: 350px;
+        height: 420px;
       }
-
 
       &-bg {
-
-        left:calc(50% - 150px);
-        top:35px;
-
+        left: calc(50% - 150px);
+        top: 35px;
       }
-
     }
-
   }
-
 }
 
-
-
-
-
-
-
-
-/* PROJECTS */
-
-
-.projects {
-
-  padding:80px 0;
-
-}
-
-
-/* STACK */
-
-.stack {
-
-  @include container;
-
-  padding:80px 0;
-
-  text-align:center;
-
-
-  &__header {
-
-    width:100%;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    text-align:center;
-
-    gap:20px;
-
-    margin-bottom:70px;
-
-
-    h2 {
-
-      margin:0;
-
-    }
-
-
-    p {
-
-      display:none;
-
-      max-width:700px;
-
-      color:$text-color;
-
-      line-height:1.6;
-
-      font-size:1.1rem;
-
-    }
-
-
-    @include desktop {
-
-      p {
-
-        display:block;
-
-      }
-
-    }
-
-  }
-
-
-
-  &__cards {
-
-    width:100%;
-
-    display:grid;
-
-    grid-template-columns:repeat(2, minmax(0, 1fr));
-
-    gap:20px;
-
-  }
-
-}
-/*Projects*/
-
-.projects {
-
-  background:#111;
-
-  color:white;
-
-  padding:80px 0;
-
-
-  &__container {
-
-    @include container;
-
-  }
-
+.home__projects {
+  background: #111;
+  color: $white;
+  padding: 70px 50px;
 
   h2 {
-
-    text-align:center;
-
-    font-size:2.5rem;
-
-    margin-bottom:50px;
-
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
   }
 
+  &-button {
+    display: inline-flex;
+    margin-top: 2rem;
+    padding: 0.9rem 1.8rem;
+    background: $black;
+    color: $white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+
+    &:hover {
+      background: $blue;
+    }
+  }
 }
 
-/*About (home)*/
+.stack {
+  @include container;
 
-.home-about {
+  padding: 80px 0;
+  text-align: center;
 
-  &__image {
+  &__header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    margin-bottom: 70px;
 
-    position:relative;
-
-
-    img {
-
-      position:relative;
-
-      z-index:2;
-
+    h2 {
+      margin: 0;
     }
 
-
-    .tag {
-
-      position:absolute;
-
-      bottom: -45px;
-
-      right:10px;
-
-      z-index:3;
-
+    p {
+      display: none;
+      max-width: 700px;
+      color: $text-color;
+      line-height: 1.6;
+      font-size: 1.2rem;
     }
 
+    @include desktop {
+      p {
+        display: block;
+      }
+    }
   }
 
+  &__cards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
 }

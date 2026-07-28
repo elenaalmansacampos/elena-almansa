@@ -1,6 +1,6 @@
 import "./About.scss";
 import Experience from "../../components/experience/Experience";
-import elenaImage from "../../assets/bk-elena-02.jpg";
+import elenaImage from "../../assets/images/bk-elena-02.jpg";
 import {
   FaLightbulb,
   FaUsers,

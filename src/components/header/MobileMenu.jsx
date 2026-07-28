@@ -19,19 +19,19 @@ function MobileMenu({ isOpen, onClose }) {
 
         <nav className="mobileMenu__nav">
 
-          <a href="#home" onClick={onClose}>
+          <a href="/" onClick={onClose}>
             Inicio
           </a>
 
-          <a href="#about" onClick={onClose}>
+          <a href="/about" onClick={onClose}>
             Sobre mí
           </a>
 
-          <a href="#projects" onClick={onClose}>
+          <a href="/projects" onClick={onClose}>
             Proyectos
           </a>
 
-          <a href="#contact" onClick={onClose}>
+          <a href="/contact" onClick={onClose}>
             Contacto
           </a>
 

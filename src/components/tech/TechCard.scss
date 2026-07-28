@@ -1,50 +1,36 @@
 @use "../../styles/variables" as *;
 
 .techCard {
-  background: #fff;
-
+  background: $white;
   border: 1px solid #e8e8e8;
-
   border-radius: 12px;
-
   padding: 35px 25px;
-
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
-
   justify-content: center;
-
   gap: 25px;
-
   min-height: 150px;
-
   transition: 0.3s;
   width: 100%;
-
   box-sizing: border-box;
 
   &:hover {
     transform: translateY(-5px);
-
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
   }
 
   &__icon {
-    color: #2563eb;
-
+    color: $blue;
     font-size: 3.2rem;
 
     svg {
-      color: #2563eb;
+      color: $blue;
     }
   }
 
   &__name {
     font-size: 1rem;
-
     font-weight: 700;
   }
 }

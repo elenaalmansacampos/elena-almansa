@@ -17,7 +17,7 @@ function Footer() {
         <nav className="footer__nav">
           <a href="#about">Sobre mí</a>
           <a href="#projects">Proyectos</a>
-          <a href="#experience">Trayectoria</a>
+          
           <a href="#contact">Contacto</a>
 
           <a

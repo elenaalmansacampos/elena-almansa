@@ -2,118 +2,69 @@
 @use "../../styles/mixins" as *;
 
 .timelineItem {
-
   position: relative;
-
   display: flex;
-
   margin-bottom: 60px;
 
   &__dot {
-
     position: absolute;
-
     left: -10px;
-
     top: 28px;
-
     width: 14px;
-
     height: 14px;
-
     border-radius: 50%;
-
-    background: #2563eb;
-
+    background: $blue;
     z-index: 2;
-
   }
 
   &__card {
-
-    background: white;
-
+    background: $white;
     border-radius: 16px;
-
     padding: 28px;
-
-    box-shadow: 0 12px 30px rgba(0,0,0,.08);
-
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
     width: 100%;
-
   }
 
   &__year {
-
     display: inline-block;
-
-    color: #2563eb;
-
-    font-size: .8rem;
-
+    color: $blue;
+    font-size: 1rem;
     font-weight: 700;
-
     margin-bottom: 12px;
-
   }
 
   h3 {
-
     margin: 0 0 12px;
-
-    font-size: 1.25rem;
-
+    font-size: 1.4rem;
     color: #111;
-
   }
 
   p {
-
     margin: 0;
-
     line-height: 1.7;
-
     color: #666;
-
+    font-size: 1.35rem;
   }
 
-}
-
-/* -------- DESKTOP -------- */
-
-@include desktop {
-
-  .timelineItem {
-
+  @include desktop {
     width: calc(50% - 60px);
-
     margin-bottom: 80px;
 
     &--left {
-
       margin-right: auto;
 
+      .timelineItem__dot {
+        right: -67px;
+        left: auto;
+      }
     }
 
     &--right {
-
       margin-left: auto;
 
+      .timelineItem__dot {
+        left: -67px;
+      }
     }
-
-    &--left .timelineItem__dot {
-
-      right: -67px;
-      left: auto;
-
-    }
-
-    &--right .timelineItem__dot {
-
-      left: -67px;
-
-    }
-
   }
-
 }

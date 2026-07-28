@@ -1,6 +1,6 @@
 import "./Contact.scss";
 
-import sagradaImage from "../../assets/sagrada-familia-barcelona.png";
+import sagradaImage from "../../assets/images/sagrada-familia-barcelona.png";
 
 import {
   FaEnvelope,

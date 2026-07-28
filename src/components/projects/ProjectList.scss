@@ -1,29 +1,49 @@
-@use "../../styles/variables" as *;
 @use "../../styles/mixins" as *;
-
 
 
 .projectList {
 
-  display:grid;
+  width: 100%;
 
-  grid-template-columns:1fr;
+  display: grid;
 
-  gap:30px;
+  grid-template-columns: 1fr;
+
+  gap: 2rem;
+
+  padding: 0 1rem;
+
+}
 
 
-  @include tablet {
 
-    grid-template-columns:repeat(2,1fr);
+// TABLET
+
+@include tablet {
+
+  .projectList {
+
+    grid-template-columns: repeat(2, 1fr);
+
+    padding: 0 2rem;
 
   }
 
+}
 
-  @include desktop {
 
-    grid-template-columns:repeat(2,1fr);
 
-    gap:40px;
+// DESKTOP
+
+@include desktop {
+
+  .projectList {
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 2rem;
+
+    padding: 0;
 
   }
 
