@@ -15,10 +15,10 @@ function Footer() {
         </div>
 
         <nav className="footer__nav">
-          <a href="#about">Sobre mí</a>
-          <a href="#projects">Proyectos</a>
+          <a href="/about">Sobre mí</a>
+          <a href="/projects">Proyectos</a>
           
-          <a href="#contact">Contacto</a>
+          <a href="/contact">Contacto</a>
 
           <a
             href="https://www.linkedin.com/in/elena-almansa-5315a017/"

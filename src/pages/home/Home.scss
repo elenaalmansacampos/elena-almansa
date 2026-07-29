@@ -144,9 +144,14 @@
 }
 
 .home__projects {
+  @include container;
   background: #111;
   color: $white;
-  padding: 70px 50px;
+  padding: 70px 1.5rem;
+
+  @include desktop {
+    padding: 70px 2rem;
+  }
 
   h2 {
     text-align: center;

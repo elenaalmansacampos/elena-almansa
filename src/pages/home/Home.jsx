@@ -9,7 +9,7 @@ import Experience from "../../components/experience/Experience";
 
 import { Link } from "react-router-dom";
 
-import elenaImage from "../../assets/images/bk-elena-01.jpg";
+import elenaImage from "../../assets/images/bk-elena.jpg";
 
 import {
   FaHtml5,
