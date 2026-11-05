@@ -242,6 +242,16 @@ El frontend queda disponible en `http://localhost:5173` y consume el backend en 
 
 ---
 
+# ▲ Despliegue en Vercel
+
+El repositorio incluye `vercel.json` con rewrites SPA y cabeceras de seguridad. Configura `VITE_API_URL` en Vercel apuntando al backend desplegado, por ejemplo:
+
+```
+VITE_API_URL=https://tu-backend.onrender.com/api
+```
+
+---
+
 # 🎨 Diseño
 
 
