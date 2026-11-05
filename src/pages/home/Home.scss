@@ -4,10 +4,10 @@
 .hero {
   @include container;
 
-  min-height: calc(100vh - 80px);
+  min-height: auto;
   display: flex;
   align-items: center;
-  padding: 60px 0;
+  padding: 40px 0;
 
   &__content {
      font-size: 1.5rem;
@@ -85,12 +85,12 @@
     align-items: center;
 
     img {
-      width: 260px;
-      height: 320px;
-      object-fit: cover;
-      position: relative;
-      z-index: 2;
-      border-radius: 8px;
+    /*  object-fit: cover;*/
+    z-index: 2;
+    border-radius: 8px;
+    width: auto;
+    height: 320px;
+    position: relative;
     }
 
     .tag {
@@ -102,7 +102,7 @@
 
     &-bg {
       position: absolute;
-      width: 260px;
+      width: auto;
       height: 320px;
       top: 25px;
       left: calc(50% - 110px);

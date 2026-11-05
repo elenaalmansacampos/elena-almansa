@@ -13,6 +13,17 @@
 
   padding: 0 1rem;
 
+  &__status {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: #666;
+    font-weight: 500;
+
+    &--error {
+      color: #b91c1c;
+    }
+  }
+
 }
 
 

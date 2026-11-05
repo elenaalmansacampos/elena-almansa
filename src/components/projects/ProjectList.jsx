@@ -1,87 +1,79 @@
 import { useEffect, useState } from "react";
 
-import { getProjects } from "../../services/projectService";
+import {
+  getFeaturedProjects,
+  getProjects
+} from "../../services/projectService";
 
 import ProjectCard from "./ProjectCard";
 
 import "./ProjectList.scss";
 
-
 function ProjectList({ featured = false }) {
-
-
   const [projects, setProjects] = useState([]);
-
-
-
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
+    let active = true;
 
+    const request = featured
+      ? getFeaturedProjects()
+      : getProjects({ size: 24 }).then((page) => page.content);
 
-    getProjects()
-
+    request
       .then((data) => {
-
-        console.log("PROJECTS:", data);
-
-        setProjects(data);
-
+        if (active) {
+          setProjects(data);
+        }
       })
-
-
-      .catch((error) => {
-
-        console.error(
-          "Error cargando proyectos:",
-          error
-        );
-
+      .catch(() => {
+        if (active) {
+          setError("No se pudieron cargar los proyectos.");
+        }
+      })
+      .finally(() => {
+        if (active) {
+          setLoading(false);
+        }
       });
 
+    return () => {
+      active = false;
+    };
+  }, [featured]);
 
-  }, []);
+  if (loading) {
+    return (
+      <p className="projectList__status">
+        Cargando proyectos...
+      </p>
+    );
+  }
 
+  if (error) {
+    return (
+      <p className="projectList__status projectList__status--error">
+        {error}
+      </p>
+    );
+  }
 
-
-
-
-  const displayedProjects = featured
-  ? projects.filter(project =>
-      [11,7,8,6,12,9].includes(project.id)
-    )
-  : projects;
-
-
-
-
+  if (projects.length === 0) {
+    return (
+      <p className="projectList__status">
+        No hay proyectos disponibles.
+      </p>
+    );
+  }
 
   return (
-
-
     <div className="projectList">
-
-
-      {
-        displayedProjects.map((project) => (
-
-          <ProjectCard
-
-            key={project.id}
-
-            project={project}
-
-          />
-
-        ))
-      }
-
-
+      {projects.map((project) => (
+        <ProjectCard key={project.id} project={project} />
+      ))}
     </div>
-
-
   );
-
 }
-
 
 export default ProjectList;

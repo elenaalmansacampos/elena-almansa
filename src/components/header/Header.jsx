@@ -1,10 +1,13 @@
 import "./Header.scss";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+
+import { useAuth } from "../../context/authContext";
 import MobileMenu from "./MobileMenu";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { isAuthenticated, logout } = useAuth();
 
   return (
     <>
@@ -15,6 +18,8 @@ function Header() {
             className="header__menuButton"
             onClick={() => setMenuOpen(true)}
             aria-label="Abrir menú"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
           >
             ☰
           </button>
@@ -33,15 +38,34 @@ function Header() {
             <Link to="/projects">Proyectos</Link>
 
             <Link to="/contact">Contacto</Link>
+
+            {isAuthenticated && (
+              <Link to="/admin">Admin</Link>
+            )}
+
+            {isAuthenticated && (
+              <button
+                type="button"
+                className="header__logout"
+                onClick={logout}
+              >
+                Salir
+              </button>
+            )}
           </nav>
 
           {/* Avatar */}
           <Link
-            to="/login"
+            to={isAuthenticated ? "/admin" : "/login"}
             className="header__avatar"
-            aria-label="Iniciar sesión"
+            aria-label={isAuthenticated ? "Ir al panel de administración" : "Iniciar sesión"}
           >
-            <img src="/elena.png" alt="Elena Almansa" />
+            <img
+              src="/elena.png"
+              alt="Elena Almansa"
+              width="46"
+              height="46"
+            />
           </Link>
         </div>
       </header>

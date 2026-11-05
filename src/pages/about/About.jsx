@@ -13,7 +13,15 @@ function About() {
     <section className="about">
       <div className="about__hero">
         <div className="about__image-wrapper">
-          <img className="about__image" src={elenaImage} alt="Elena Almansa" />
+          <img
+            className="about__image"
+            src={elenaImage}
+            alt="Elena Almansa"
+            width="1200"
+            height="1600"
+            loading="lazy"
+            decoding="async"
+          />
           <div className="about__image-text">
             <span>Artesanía del Software</span>
             <h1>Sobre mí</h1>
@@ -128,7 +136,7 @@ function About() {
 
       <a
         className="about__cv"
-        href="/ELENA-ALMANSA-FULL-STACK-DEV.png"
+        href="/ELENA-ALMANSA-FULL-STACK-DEV.pdf"
         download
       >
         Descargar CV

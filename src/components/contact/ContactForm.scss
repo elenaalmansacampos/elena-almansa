@@ -1,0 +1,100 @@
+@use "../../styles/variables" as *;
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  &__field--full {
+    grid-column: 1 / -1;
+  }
+
+  label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #4b4b55;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: $white;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical;
+  }
+
+  textarea {
+    min-height: 140px;
+  }
+
+  input:focus-visible,
+  textarea:focus-visible {
+    outline: 3px solid rgba($blue, 0.35);
+    outline-offset: 2px;
+    border-color: $blue;
+  }
+
+  input[aria-invalid="true"],
+  textarea[aria-invalid="true"] {
+    border-color: #dc2626;
+  }
+
+  &__error {
+    margin: 0;
+    color: #b91c1c;
+    font-size: 0.85rem;
+  }
+
+  &__actions {
+    grid-column: 1 / -1;
+  }
+
+  button {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 0.95rem 1.5rem;
+    background: $black;
+    color: $white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover:not(:disabled) {
+      background: $blue;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  &__status {
+    grid-column: 1 / -1;
+    margin: 0;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    &--success {
+      color: #047857;
+    }
+
+    &--error {
+      color: #b91c1c;
+    }
+  }
+}

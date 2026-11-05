@@ -1,144 +1,59 @@
 import "./ProjectCard.scss";
 
-import { projectImages } from "../../assets/project";
-
-import portfolioImage from "../../assets/project/portofolio.png";
-
+import { getProjectImage } from "../../assets/project";
 
 function ProjectCard({ project }) {
-
-
   const technologies = project.technologies
     ?.split(",")
     .map((tech) => tech.trim())
     .filter(Boolean);
 
-
+  const link = project.demoUrl || project.githubUrl;
 
   return (
-
-
     <article
       className={`projectCard ${
-        project.id === 11  ? "projectCard--featured" : ""
+        project.featured ? "projectCard--featured" : ""
       }`}
     >
-
-
-
-      {
-        project.id === 11 && (
-
-          <span className="projectCard__featured">
-
-            Proyecto destacado
-
-          </span>
-
-        )
-      }
-
-
-
-
+      {project.featured && (
+        <span className="projectCard__featured">
+          Proyecto destacado
+        </span>
+      )}
 
       <div className="projectCard__image">
-
-
         <img
-
-          src={
-            projectImages[project.id] || portfolioImage
-          }
-
+          src={getProjectImage(project)}
           alt={project.title}
-
+          width="640"
+          height="400"
+          loading="lazy"
+          decoding="async"
         />
-
-
       </div>
-
-
-
-
 
       <div className="projectCard__content">
+        <h3>{project.title}</h3>
 
-
-        <h3>
-
-          {project.title}
-
-        </h3>
-
-
-
-
-        <p>
-
-          {project.description}
-
-        </p>
-
-
-
-
+        <p>{project.description}</p>
 
         <div className="projectCard__tags">
-
-
-          {
-            technologies?.map((tech) => (
-
-              <span key={tech}>
-
-                {tech}
-
-              </span>
-
-            ))
-          }
-
-
+          {technologies?.map((tech) => (
+            <span key={tech}>{tech}</span>
+          ))}
         </div>
 
-
-
-
-
-
-        <div className="projectCard__buttons">
-
-
-          <a
-
-            href={project.demoUrl || project.githubUrl}
-
-            target="_blank"
-
-            rel="noreferrer"
-
-          >
-
-            Ver detalles →
-
-          </a>
-
-
-        </div>
-
-
-
+        {link && (
+          <div className="projectCard__buttons">
+            <a href={link} target="_blank" rel="noreferrer">
+              Ver detalles →
+            </a>
+          </div>
+        )}
       </div>
-
-
-
     </article>
-
-
   );
-
 }
-
 
 export default ProjectCard;

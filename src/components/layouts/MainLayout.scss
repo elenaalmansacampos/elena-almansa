@@ -1,1 +1,25 @@
-// TODO: main layout styles
+@use "../../styles/variables" as *;
+
+.routeLoading {
+  padding: 4rem 1rem;
+  text-align: center;
+  color: #555;
+  font-weight: 600;
+}
+
+.skipLink {
+  position: fixed;
+  top: -100px;
+  left: 1rem;
+  z-index: 2000;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  background: $dark-color;
+  color: $white;
+  text-decoration: none;
+  font-weight: 600;
+
+  &:focus {
+    top: 1rem;
+  }
+}

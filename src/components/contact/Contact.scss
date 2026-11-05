@@ -1,7 +1,7 @@
 @use "../../styles/variables" as *;
 @use "../../styles/mixins" as *;
 
-.contact {
+.contactSection {
   padding: 90px 0;
   background: $white;
 
@@ -20,42 +20,5 @@
     color: $text-color;
     margin-bottom: 40px;
     line-height: 1.6;
-  }
-
-  &__form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-
-    input,
-    textarea {
-      width: 100%;
-      padding: 15px 18px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      font-size: 1rem;
-      font-family: inherit;
-      resize: none;
-
-      &:focus {
-        outline: none;
-        border-color: #111;
-      }
-    }
-
-    button {
-      background: #111;
-      color: $white;
-      border: none;
-      padding: 15px 25px;
-      border-radius: 10px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.3s;
-
-      &:hover {
-        transform: translateY(-2px);
-      }
-    }
   }
 }

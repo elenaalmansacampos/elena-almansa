@@ -163,6 +163,19 @@
       border-radius: 10px;
       font-weight: 600;
       cursor: pointer;
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+
+    &__status {
+      grid-column: 1 / -1;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: $blue;
+      text-align: center;
     }
   }
 

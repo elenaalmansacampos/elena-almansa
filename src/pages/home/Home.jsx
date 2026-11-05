@@ -126,6 +126,10 @@ function Home() {
           <img
             src={elenaImage}
             alt="Elena Almansa"
+            width="1200"
+            height="1600"
+            loading="lazy"
+            decoding="async"
           />
 
 

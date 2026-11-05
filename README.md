@@ -208,30 +208,37 @@ http://localhost:5173
 
 # 🔌 Conexión API
 
+La URL del backend se configura con `VITE_API_URL` (por defecto `http://localhost:8080/api`). Copia `.env.example` a `.env` y ajústala si es necesario:
 
-Backend:
-
+```bash
+cp .env.example .env
 ```
-http://localhost:8080
-```
-
 
 Endpoints utilizados:
 
-
-Obtener proyectos:
-
 ```
-GET /api/projects
-```
-
-
-Autenticación:
-
-```
-POST /api/auth/login
+GET    /api/projects
+POST   /api/auth/login
+POST   /api/contact
+POST   /api/projects      (ADMIN)
+PUT    /api/projects/:id  (ADMIN)
+DELETE /api/projects/:id  (ADMIN)
 ```
 
+El frontend incluye login, logout, rutas protegidas y un panel de administración en `/admin`.
+
+
+---
+
+# 🐳 Docker
+
+Desde la raíz del repositorio:
+
+```bash
+docker compose --env-file ./portafolio-backend/.env up --build
+```
+
+El frontend queda disponible en `http://localhost:5173` y consume el backend en `http://localhost:8080/api`.
 
 ---
 
@@ -248,6 +255,22 @@ El diseño está basado en una estética minimalista y profesional:
 - Experiencia de usuario cuidada
 - Separación entre lógica y estilos
 
+
+---
+
+# 🧪 Scripts
+
+| Comando | Descripción |
+|---|---|
+| `npm run dev` | Servidor de desarrollo |
+| `npm run build` | Build de producción |
+| `npm run lint` | ESLint |
+| `npm run build:analyze` | Build con análisis de bundle (`dist/stats.html`) |
+| `npm run check:bundle` | Verifica el presupuesto de rendimiento |
+| `npm run api:types` | Genera tipos TypeScript desde OpenAPI |
+| `npm run test:e2e` | Tests E2E con Playwright |
+
+La autenticación usa access token en memoria y refresh token en cookie `HttpOnly`. El interceptor de Axios renueva la sesión automáticamente.
 
 ---
 

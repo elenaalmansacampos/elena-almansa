@@ -1,25 +1,33 @@
-import mundoTech from "./mundo-tech.png";
-import portfolio from "./portofolio.png";
-import tarot from "./goddesses-tarot.png";
-import duckstore from "./duckstore.png";
-import tictactoe from "./tictactoe.png";
-import bibliotecaFeminista from "./biblioteca-feminista.png";
+import mundoTech from "./mundo-tech.jpg";
+import portfolio from "./portofolio.jpg";
+import tarot from "./goddesses-tarot.jpg";
+import duckstore from "./duckstore.jpg";
+import tictactoe from "./tictactoe.jpg";
+import bibliotecaFeminista from "./biblioteca-feminista.jpg";
+import cinephile from "./cinephile.jpg";
+import visualesHydra from "./visuales-hydra.jpg";
 
-
-
-export const projectImages = {
-
-  11: mundoTech,
-
-  7: portfolio,
-
-  8: tarot,
-
-  9: duckstore,
-
-  6: tictactoe,
-
-  12: bibliotecaFeminista
-  
-
+const imageByTitle = {
+  "mundo tech": mundoTech,
+  "portfolio personal": portfolio,
+  "goddesses tarot": tarot,
+  duckstore: duckstore,
+  tictactoe: tictactoe,
+  "biblioteca feminista": bibliotecaFeminista,
+  cinephile: cinephile,
+  "visuales hydra": visualesHydra
 };
+
+export const defaultProjectImage = portfolio;
+
+function normalizeTitle(title) {
+  return title?.trim().toLowerCase().replace(/\s+/g, " ") || "";
+}
+
+export function getProjectImage(project) {
+  return (
+    project?.imageUrl ||
+    imageByTitle[normalizeTitle(project?.title)] ||
+    defaultProjectImage
+  );
+}

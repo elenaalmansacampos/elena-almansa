@@ -98,14 +98,24 @@
     input {
       padding-right: 3.5rem;
     }
+  }
 
-    svg {
-      position: absolute;
-      right: 1.2rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #c4c6cf;
-      font-size: 1.5rem;
+  &__toggle-password {
+    position: absolute;
+    right: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    color: #c4c6cf;
+    font-size: 1.5rem;
+
+    &:hover {
+      color: #666;
     }
   }
 

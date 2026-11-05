@@ -1,1 +1,220 @@
-// TODO: admin styles
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.admin {
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 2rem;
+
+    h1 {
+      margin: 0.5rem 0;
+      color: $dark-color;
+    }
+
+    p {
+      color: #555;
+      margin: 0;
+    }
+  }
+
+  &__label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: $primary-color;
+  }
+
+  &__logout {
+    border: 1px solid $gray-color;
+    background: $white;
+    padding: 0.7rem 1.1rem;
+    border-radius: 999px;
+    font-weight: 600;
+    cursor: pointer;
+    color: $text-color;
+
+    &:hover {
+      border-color: $primary-color;
+      color: $primary-color;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  &__card {
+    background: $white;
+    border-radius: $radius;
+    padding: 2rem;
+    box-shadow: $shadow;
+
+    h2 {
+      margin-top: 0;
+      color: $dark-color;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+
+    label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #4b4b55;
+      margin-top: 0.6rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 1rem;
+      resize: vertical;
+    }
+
+    input[type="checkbox"] {
+      width: auto;
+      accent-color: $primary-color;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.9rem 1.2rem;
+      border: none;
+      border-radius: 10px;
+      background: $black;
+      color: $white;
+      font-weight: 600;
+      cursor: pointer;
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  &__checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #4b4b55;
+    cursor: pointer;
+  }
+
+  button.admin__cancel {
+    margin-top: 0.5rem;
+    background: transparent;
+    color: $text-color;
+    border: 1px solid $gray-color;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.9rem 1rem;
+      border: 1px solid $gray-color;
+      border-radius: 10px;
+
+      > div:first-child {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        min-width: 0;
+      }
+
+      span {
+        color: #666;
+        font-size: 0.9rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      button {
+        flex-shrink: 0;
+        border: 1px solid #f2c4c4;
+        background: #fff5f5;
+        color: #b91c1c;
+        border-radius: 8px;
+        padding: 0.45rem 0.8rem;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      button.admin__edit {
+        border-color: #bfdbfe;
+        background: #eff6ff;
+        color: #1d4ed8;
+      }
+    }
+  }
+
+  &__row-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  &__success,
+  &__error {
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+    font-weight: 600;
+  }
+
+  &__success {
+    background: #ecfdf5;
+    color: #047857;
+  }
+
+  &__error {
+    background: #fef2f2;
+    color: #b91c1c;
+  }
+
+  &__back {
+    display: inline-block;
+    margin-top: 2rem;
+    color: $primary-color;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  @include tablet {
+    &__grid {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+  }
+}

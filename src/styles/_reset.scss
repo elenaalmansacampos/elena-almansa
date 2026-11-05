@@ -35,3 +35,8 @@ a {
 button {
   font-family: inherit;
 }
+
+:focus-visible {
+  outline: 3px solid $secondary-color;
+  outline-offset: 2px;
+}

@@ -53,4 +53,20 @@
       font-weight: 500;
     }
   }
+
+  &__logout {
+    margin-top: auto;
+    border: 1px solid $gray-color;
+    background: none;
+    padding: 0.8rem 1rem;
+    border-radius: 999px;
+    font-weight: 600;
+    cursor: pointer;
+    color: $text-color;
+
+    &:hover {
+      border-color: $primary-color;
+      color: $primary-color;
+    }
+  }
 }

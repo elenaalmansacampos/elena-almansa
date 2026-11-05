@@ -1,32 +1,33 @@
 import "./Button.scss";
 
-
-function Button({ children, variant = "primary", href }) {
-
+function Button({
+  children,
+  variant = "primary",
+  href,
+  type = "button",
+  ...props
+}) {
   if (href) {
-
     return (
-      <a 
+      <a
         href={href}
         className={`button button--${variant}`}
+        {...props}
       >
         {children}
       </a>
     );
-
   }
 
-
   return (
-
-    <button className={`button button--${variant}`}>
-
+    <button
+      type={type}
+      className={`button button--${variant}`}
+      {...props}
+    >
       {children}
-
     </button>
-
   );
-
 }
 
 export default Button;
