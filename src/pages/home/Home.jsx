@@ -79,7 +79,7 @@ function Home() {
           <div className="hero__buttons">
 
 
-            <Button variant="primary" href="/projects">
+            <Button variant="primary" to="/projects">
 
               Ver proyectos
 

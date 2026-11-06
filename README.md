@@ -242,6 +242,25 @@ El frontend queda disponible en `http://localhost:5173` y consume el backend en 
 
 ---
 
+# 🐙 GitHub Pages
+
+URL prevista:
+
+```
+https://elenaalmansacampos.github.io/elena-almansa/
+```
+
+Configuración:
+
+1. En GitHub, `Settings > Pages > Build and deployment > Source: GitHub Actions`.
+2. El workflow `.github/workflows/deploy-pages.yml` compila con `VITE_BASE_PATH=/elena-almansa/`.
+3. Añade la variable de repositorio `VITE_API_URL` en `Settings > Secrets and variables > Actions > Variables` con la URL del backend desplegado.
+4. El workflow genera `404.html` para mantener URLs limpias en rutas SPA.
+
+> GitHub Pages solo aloja el frontend. El backend Spring Boot debe desplegarse aparte (Render/Fly/Railway) y usar PostgreSQL gestionado (Neon/Supabase). Las URLs profundas devuelven HTTP 404 aunque el SPA funcione; para SEO perfecto conviene un dominio propio con rewrites reales.
+
+---
+
 # ▲ Despliegue en Vercel
 
 El repositorio incluye `vercel.json` con rewrites SPA y cabeceras de seguridad. Configura `VITE_API_URL` en Vercel apuntando al backend desplegado, por ejemplo:

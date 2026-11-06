@@ -61,7 +61,7 @@ function Header() {
             aria-label={isAuthenticated ? "Ir al panel de administración" : "Iniciar sesión"}
           >
             <img
-              src="/elena.png"
+              src={`${import.meta.env.BASE_URL}elena.png`}
               alt="Elena Almansa"
               width="46"
               height="46"

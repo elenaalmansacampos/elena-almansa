@@ -136,7 +136,7 @@ function About() {
 
       <a
         className="about__cv"
-        href="/ELENA-ALMANSA-FULL-STACK-DEV.pdf"
+        href={`${import.meta.env.BASE_URL}ELENA-ALMANSA-FULL-STACK-DEV.pdf`}
         download
       >
         Descargar CV

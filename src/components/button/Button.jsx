@@ -1,12 +1,27 @@
+import { Link } from "react-router-dom";
+
 import "./Button.scss";
 
 function Button({
   children,
   variant = "primary",
   href,
+  to,
   type = "button",
   ...props
 }) {
+  if (to) {
+    return (
+      <Link
+        to={to}
+        className={`button button--${variant}`}
+        {...props}
+      >
+        {children}
+      </Link>
+    );
+  }
+
   if (href) {
     return (
       <a
