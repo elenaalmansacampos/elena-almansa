@@ -21,6 +21,12 @@ test("la home muestra proyectos aunque la API no esté disponible", async ({ pag
   await expect(
     page.getByRole("heading", { name: "Fundación Verisure" })
   ).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Athletica Gestión de Gimnasio" })
+  ).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Servido Hackathon Stellar" })
+  ).toBeVisible();
   await expect(page.getByText("TicTacToe")).toBeVisible();
 });
 

@@ -1,5 +1,35 @@
 export const fallbackProjects = [
   {
+    id: 16,
+    title: "Athletica Gestión de Gimnasio",
+    slug: "athletica-gestion-gimnasio",
+    description:
+      "Aplicación de gestión para el gimnasio Athletica: socios, membresías, clases y reservas. API REST con FastAPI y PostgreSQL, frontend React, autenticación, tests, documentación Swagger y despliegue en Render.",
+    technologies:
+      "Python, FastAPI, PostgreSQL, React, TypeScript, Docker, Pytest",
+    imageUrl: "",
+    githubUrl: "https://github.com/IA-P1-BCN/g2-python-crud-api",
+    demoUrl: "https://athletica-web.onrender.com/",
+    featured: true,
+    displayOrder: 3,
+    createdAt: "2026-11-06T00:00:00"
+  },
+  {
+    id: 15,
+    title: "Servido Hackathon Stellar",
+    slug: "servido-hackathon-stellar",
+    description:
+      "SaaS multi-tenant para bares y restaurantes con pagos en USDC sobre Stellar: pago de la cuenta desde QR o enlace, redondeo solidario a una causa en la misma transacción y cierre automático del ticket al confirmar Horizon. Incluye contrato Soroban para el pool de donaciones.",
+    technologies:
+      "TypeScript, React, Node.js, Stellar, Soroban, Rust, USDC, Docker",
+    imageUrl: "",
+    githubUrl: "https://github.com/hackmeridian-kosmicteam/servido-hackathon",
+    demoUrl: "https://hackathon-servido.agustinpane.xyz",
+    featured: true,
+    displayOrder: 4,
+    createdAt: "2026-11-06T00:00:00"
+  },
+  {
     id: 14,
     title: "Fundación Verisure",
     slug: "fundacion-verisure",

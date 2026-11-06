@@ -6,6 +6,8 @@ import tictactoe from "./tictactoe.jpg";
 import bibliotecaFeminista from "./biblioteca-feminista.jpg";
 import cinephile from "./cinephile.jpg";
 import visualesHydra from "./visuales-hydra.jpg";
+import servido from "./servido.jpg";
+import athletica from "./athletica.jpg";
 
 const imageByTitle = {
   "mundo tech": mundoTech,
@@ -15,7 +17,9 @@ const imageByTitle = {
   tictactoe: tictactoe,
   "biblioteca feminista": bibliotecaFeminista,
   cinephile: cinephile,
-  "visuales hydra": visualesHydra
+  "visuales hydra": visualesHydra,
+  "servido hackathon stellar": servido,
+  "athletica gestión de gimnasio": athletica
 };
 
 export const defaultProjectImage = portfolio;
