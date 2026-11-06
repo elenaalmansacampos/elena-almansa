@@ -15,6 +15,12 @@ test("la home carga y permite navegar a proyectos", async ({ page }) => {
   ).toBeVisible();
 });
 
+test("la home muestra proyectos aunque la API no esté disponible", async ({ page }) => {
+  await page.goto("/");
+
+  await expect(page.getByText("TicTacToe")).toBeVisible();
+});
+
 test("el panel admin redirige al login sin sesión", async ({ page }) => {
   await page.goto("/admin");
 

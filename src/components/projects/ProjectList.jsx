@@ -5,6 +5,7 @@ import {
   getProjects
 } from "../../services/projectService";
 
+import { fallbackProjects } from "../../data/fallbackProjects";
 import ProjectCard from "./ProjectCard";
 
 import "./ProjectList.scss";
@@ -12,7 +13,6 @@ import "./ProjectList.scss";
 function ProjectList({ featured = false }) {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
 
   useEffect(() => {
     let active = true;
@@ -29,7 +29,11 @@ function ProjectList({ featured = false }) {
       })
       .catch(() => {
         if (active) {
-          setError("No se pudieron cargar los proyectos.");
+          setProjects(
+            featured
+              ? fallbackProjects.filter((project) => project.featured)
+              : fallbackProjects
+          );
         }
       })
       .finally(() => {
@@ -47,14 +51,6 @@ function ProjectList({ featured = false }) {
     return (
       <p className="projectList__status">
         Cargando proyectos...
-      </p>
-    );
-  }
-
-  if (error) {
-    return (
-      <p className="projectList__status projectList__status--error">
-        {error}
       </p>
     );
   }
