@@ -1,12 +1,9 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
-import { useAuth } from "../../context/authContext";
-
 import "./MobileMenu.scss";
 
 function MobileMenu({ isOpen, onClose }) {
-  const { isAuthenticated, logout } = useAuth();
   const firstLinkRef = useRef(null);
 
   useEffect(() => {
@@ -25,11 +22,6 @@ function MobileMenu({ isOpen, onClose }) {
 
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, onClose]);
-
-  const handleLogout = () => {
-    logout();
-    onClose();
-  };
 
   return (
     <>
@@ -59,35 +51,16 @@ function MobileMenu({ isOpen, onClose }) {
           <Link ref={firstLinkRef} to="/" onClick={onClose}>
             Inicio
           </Link>
-
           <Link to="/about" onClick={onClose}>
             Sobre mí
           </Link>
-
           <Link to="/projects" onClick={onClose}>
             Proyectos
           </Link>
-
           <Link to="/contact" onClick={onClose}>
             Contacto
           </Link>
-
-          {isAuthenticated && (
-            <Link to="/admin" onClick={onClose}>
-              Admin
-            </Link>
-          )}
         </nav>
-
-        {isAuthenticated && (
-          <button
-            type="button"
-            className="mobileMenu__logout"
-            onClick={handleLogout}
-          >
-            Cerrar sesión
-          </button>
-        )}
       </aside>
     </>
   );

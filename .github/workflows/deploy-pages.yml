@@ -34,17 +34,10 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      - name: Warn if VITE_API_URL is missing
-        run: |
-          if [ -z "${{ vars.VITE_API_URL }}" ]; then
-            echo "::warning::Configura VITE_API_URL en Settings > Secrets and variables > Actions > Variables."
-          fi
-
       - name: Build for GitHub Pages
         run: npm run build
         env:
           VITE_BASE_PATH: /elena-almansa/
-          VITE_API_URL: ${{ vars.VITE_API_URL }}
 
       - name: Prepare SPA fallback
         run: |

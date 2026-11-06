@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import { sendContact } from "../../services/contactService";
-
 import "./ContactForm.scss";
+
+const CONTACT_EMAIL = "elenaalmansacampos@gmail.com";
 
 const EMPTY_FORM = {
   name: "",
@@ -42,7 +42,6 @@ function ContactForm({ className = "", buttonLabel = "Enviar mensaje" }) {
   const [form, setForm] = useState(EMPTY_FORM);
   const [fieldErrors, setFieldErrors] = useState({});
   const [status, setStatus] = useState(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -58,12 +57,8 @@ function ContactForm({ className = "", buttonLabel = "Enviar mensaje" }) {
     }));
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-
-    if (isSubmitting) {
-      return;
-    }
 
     const errors = validate(form);
 
@@ -73,50 +68,22 @@ function ContactForm({ className = "", buttonLabel = "Enviar mensaje" }) {
       return;
     }
 
-    setIsSubmitting(true);
+    const subject = encodeURIComponent("Contacto desde el portfolio");
+    const body = encodeURIComponent(
+      `Nombre: ${form.name.trim()}\n`
+      + `Email: ${form.email.trim()}\n\n`
+      + form.message.trim()
+    );
+
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+
     setFieldErrors({});
-    setStatus(null);
-
-    try {
-      await sendContact({
-        name: form.name.trim(),
-        email: form.email.trim(),
-        message: form.message.trim()
-      });
-
-      setForm(EMPTY_FORM);
-      setStatus({
-        type: "success",
-        message: "Gracias por contactar, te responderé lo antes posible."
-      });
-    } catch (requestError) {
-      const statusCode = requestError.response?.status;
-
-      if (statusCode === 429) {
-        setStatus({
-          type: "error",
-          message: "Has enviado demasiados mensajes. Espera un minuto."
-        });
-      } else if (statusCode === 400) {
-        setStatus({
-          type: "error",
-          message: "Revisa los datos del formulario."
-        });
-      } else if (!requestError.response) {
-        setStatus({
-          type: "error",
-          message:
-            "El formulario no está disponible ahora mismo. Escríbeme a elenaalmansacampos@gmail.com."
-        });
-      } else {
-        setStatus({
-          type: "error",
-          message: "Ha ocurrido un error. Inténtalo de nuevo."
-        });
-      }
-    } finally {
-      setIsSubmitting(false);
-    }
+    setForm(EMPTY_FORM);
+    setStatus({
+      type: "success",
+      message:
+        `Se ha abierto tu cliente de correo. Si no ocurre nada, escríbeme a ${CONTACT_EMAIL}.`
+    });
   };
 
   return (
@@ -195,8 +162,8 @@ function ContactForm({ className = "", buttonLabel = "Enviar mensaje" }) {
       </div>
 
       <div className="contactForm__actions">
-        <button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? "Enviando..." : buttonLabel}
+        <button type="submit">
+          {buttonLabel}
         </button>
       </div>
 

@@ -43,21 +43,6 @@
     }
   }
 
-  &__logout {
-    border: 1px solid $gray-color;
-    background: none;
-    padding: 8px 14px;
-    border-radius: 999px;
-    cursor: pointer;
-    color: $text-color;
-    font-weight: 600;
-
-    &:hover {
-      border-color: $primary-color;
-      color: $primary-color;
-    }
-  }
-
   &__avatar {
     width: 46px;
     height: 46px;

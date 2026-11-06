@@ -12,7 +12,9 @@
 
 ## 📌 Descripción
 
-Portfolio personal desarrollado como **Full Stack Developer**, creado con **React + Vite + SCSS** y conectado con una API REST desarrollada con **Spring Boot y PostgreSQL**.
+Portfolio personal desarrollado como **Full Stack Developer**, creado con **React + Vite + SCSS**.
+
+> **Estado actual:** versión estática publicada en GitHub Pages. El backend Spring Boot existe en el proyecto, pero no está conectado en esta versión; los proyectos se sirven desde datos locales y el formulario abre el cliente de correo.
 
 El proyecto representa mi evolución profesional desde más de 20 años trabajando como **Webmaster** hacia el desarrollo de aplicaciones Full Stack modernas.
 
@@ -23,7 +25,7 @@ El objetivo es mostrar mi experiencia, stack tecnológico y proyectos reales med
 
 # 🚀 Demo
 
-🔗 Próximamente disponible
+🔗 https://elenaalmansacampos.github.io/elena-almansa/
 
 
 ---
@@ -37,14 +39,13 @@ El objetivo es mostrar mi experiencia, stack tecnológico y proyectos reales med
 - ⚡ Vite
 - 🎨 SCSS / SASS
 - 🔀 React Router DOM
-- 🌐 Axios
 - 🎯 React Icons
 - 📱 Diseño Responsive
 
 
-## Backend conectado
+## Backend del proyecto
 
-Este frontend consume una API REST desarrollada con:
+El backend existe en un repositorio aparte, aunque **no está conectado en la versión estática actual**. Está desarrollado con:
 
 - ☕ Java
 - 🌱 Spring Boot
@@ -83,7 +84,7 @@ Repositorio backend:
 
 ## 🚀 Proyectos
 
-Los proyectos se cargan dinámicamente desde el backend mediante API REST.
+Los proyectos se cargan desde datos locales (`src/data/fallbackProjects.js`) para que la versión estática de GitHub Pages no dependa de un backend.
 
 Incluye:
 
@@ -150,12 +151,10 @@ src
 │   ├── home
 │   ├── about
 │   ├── projects
-│   ├── contact
-│   └── login
+│   └── contact
 │
-├── services
-│   ├── projectService.js
-│   └── authService.js
+├── data
+│   └── fallbackProjects.js
 │
 └── styles
     ├── variables.scss
@@ -172,7 +171,7 @@ src
 Clonar repositorio:
 
 ```bash
-git clone https://github.com/elenaalmansacampos/portafolio-frontend.git
+git clone https://github.com/elenaalmansacampos/elena-almansa.git
 ```
 
 
@@ -206,26 +205,15 @@ http://localhost:5173
 
 ---
 
-# 🔌 Conexión API
+# 🔌 Modo estático
 
-La URL del backend se configura con `VITE_API_URL` (por defecto `http://localhost:8080/api`). Copia `.env.example` a `.env` y ajústala si es necesario:
+Esta versión no realiza peticiones al backend:
 
-```bash
-cp .env.example .env
-```
+- Los proyectos se cargan desde `src/data/fallbackProjects.js`.
+- El formulario de contacto valida en cliente y abre el cliente de correo con el mensaje preparado.
+- Las rutas `/login` y `/admin` redirigen a la home.
 
-Endpoints utilizados:
-
-```
-GET    /api/projects
-POST   /api/auth/login
-POST   /api/contact
-POST   /api/projects      (ADMIN)
-PUT    /api/projects/:id  (ADMIN)
-DELETE /api/projects/:id  (ADMIN)
-```
-
-El frontend incluye login, logout, rutas protegidas y un panel de administración en `/admin`.
+El backend queda preparado en el repositorio `mi-portofolio-backend` para una futura reconexión.
 
 
 ---
@@ -254,20 +242,15 @@ Configuración:
 
 1. En GitHub, `Settings > Pages > Build and deployment > Source: GitHub Actions`.
 2. El workflow `.github/workflows/deploy-pages.yml` compila con `VITE_BASE_PATH=/elena-almansa/`.
-3. Añade la variable de repositorio `VITE_API_URL` en `Settings > Secrets and variables > Actions > Variables` con la URL del backend desplegado.
-4. El workflow genera `404.html` para mantener URLs limpias en rutas SPA.
+3. El workflow genera `404.html` para mantener URLs limpias en rutas SPA.
 
-> GitHub Pages solo aloja el frontend. El backend Spring Boot debe desplegarse aparte (Render/Fly/Railway) y usar PostgreSQL gestionado (Neon/Supabase). Las URLs profundas devuelven HTTP 404 aunque el SPA funcione; para SEO perfecto conviene un dominio propio con rewrites reales.
+> GitHub Pages solo aloja el frontend. Esta versión es estática y no usa backend. Las URLs profundas devuelven HTTP 404 aunque el SPA funcione; para SEO perfecto conviene un dominio propio con rewrites reales.
 
 ---
 
 # ▲ Despliegue en Vercel
 
-El repositorio incluye `vercel.json` con rewrites SPA y cabeceras de seguridad. Configura `VITE_API_URL` en Vercel apuntando al backend desplegado, por ejemplo:
-
-```
-VITE_API_URL=https://tu-backend.onrender.com/api
-```
+El repositorio incluye `vercel.json` con rewrites SPA y cabeceras de seguridad. Al ser una versión estática, no requiere variables de entorno.
 
 ---
 
@@ -296,7 +279,6 @@ El diseño está basado en una estética minimalista y profesional:
 | `npm run lint` | ESLint |
 | `npm run build:analyze` | Build con análisis de bundle (`dist/stats.html`) |
 | `npm run check:bundle` | Verifica el presupuesto de rendimiento |
-| `npm run api:types` | Genera tipos TypeScript desde OpenAPI |
 | `npm run test:e2e` | Tests E2E con Playwright |
 
 La autenticación usa access token en memoria y refresh token en cookie `HttpOnly`. El interceptor de Axios renueva la sesión automáticamente.

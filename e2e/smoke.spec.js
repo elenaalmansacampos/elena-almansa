@@ -15,7 +15,7 @@ test("la home carga y permite navegar a proyectos", async ({ page }) => {
   ).toBeVisible();
 });
 
-test("la home muestra proyectos aunque la API no esté disponible", async ({ page }) => {
+test("la home muestra los proyectos del portfolio", async ({ page }) => {
   await page.goto("/");
 
   await expect(
@@ -30,13 +30,20 @@ test("la home muestra proyectos aunque la API no esté disponible", async ({ pag
   await expect(page.getByText("TicTacToe")).toBeVisible();
 });
 
-test("el panel admin redirige al login sin sesión", async ({ page }) => {
-  await page.goto("/admin");
+test("login y admin están desactivados", async ({ page }) => {
+  await page.goto("/login");
 
-  await expect(page).toHaveURL(/\/login$/);
+  await expect(page).toHaveURL(/\/$/);
   await expect(
-    page.getByRole("heading", { name: "Bienvenida de nuevo" })
+    page.getByRole("heading", { name: /Desarrolladora Full Stack/i })
   ).toBeVisible();
+
+  await page.goto("/admin");
+  await expect(page).toHaveURL(/\/$/);
+
+  await expect(
+    page.getByRole("link", { name: /iniciar sesión/i })
+  ).toHaveCount(0);
 });
 
 test("el formulario de contacto valida en cliente", async ({ page }) => {
