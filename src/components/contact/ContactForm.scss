@@ -6,6 +6,10 @@
   gap: 1rem;
   text-align: left;
 
+  &__honey {
+    display: none;
+  }
+
   &__field {
     display: flex;
     flex-direction: column;

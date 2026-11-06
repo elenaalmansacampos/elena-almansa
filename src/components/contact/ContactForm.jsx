@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./ContactForm.scss";
 
 const CONTACT_EMAIL = "elenaalmansacampos@gmail.com";
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_KEY;
 
 const EMPTY_FORM = {
   name: "",
@@ -42,6 +43,7 @@ function ContactForm({ className = "", buttonLabel = "Enviar mensaje" }) {
   const [form, setForm] = useState(EMPTY_FORM);
   const [fieldErrors, setFieldErrors] = useState({});
   const [status, setStatus] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -57,8 +59,12 @@ function ContactForm({ className = "", buttonLabel = "Enviar mensaje" }) {
     }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+
+    if (isSubmitting) {
+      return;
+    }
 
     const errors = validate(form);
 
@@ -68,22 +74,61 @@ function ContactForm({ className = "", buttonLabel = "Enviar mensaje" }) {
       return;
     }
 
-    const subject = encodeURIComponent("Contacto desde el portfolio");
-    const body = encodeURIComponent(
-      `Nombre: ${form.name.trim()}\n`
-      + `Email: ${form.email.trim()}\n\n`
-      + form.message.trim()
-    );
+    if (!WEB3FORMS_ACCESS_KEY) {
+      setStatus({
+        type: "error",
+        message:
+          `El formulario no está configurado. Escríbeme a ${CONTACT_EMAIL}.`
+      });
+      return;
+    }
 
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+    const honey = event.currentTarget.elements._honey?.value || "";
 
+    setIsSubmitting(true);
     setFieldErrors({});
-    setForm(EMPTY_FORM);
-    setStatus({
-      type: "success",
-      message:
-        `Se ha abierto tu cliente de correo. Si no ocurre nada, escríbeme a ${CONTACT_EMAIL}.`
-    });
+    setStatus(null);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: "Nuevo mensaje desde el portfolio",
+          from_name: "Portfolio Elena Almansa",
+          name: form.name.trim(),
+          email: form.email.trim(),
+          replyto: form.email.trim(),
+          message: form.message.trim(),
+          botcheck: honey
+        })
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok || data.success === false) {
+        throw new Error("No se pudo enviar el mensaje");
+      }
+
+      setForm(EMPTY_FORM);
+      setStatus({
+        type: "success",
+        message:
+          "Mensaje enviado correctamente. Te responderé lo antes posible."
+      });
+    } catch {
+      setStatus({
+        type: "error",
+        message:
+          `No se pudo enviar el mensaje. Escríbeme directamente a ${CONTACT_EMAIL}.`
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -92,6 +137,15 @@ function ContactForm({ className = "", buttonLabel = "Enviar mensaje" }) {
       onSubmit={handleSubmit}
       noValidate
     >
+      <input
+        type="text"
+        name="_honey"
+        className="contactForm__honey"
+        tabIndex="-1"
+        autoComplete="off"
+        aria-hidden="true"
+      />
+
       <div className="contactForm__field">
         <label htmlFor="contact-name">
           Nombre completo
@@ -162,8 +216,8 @@ function ContactForm({ className = "", buttonLabel = "Enviar mensaje" }) {
       </div>
 
       <div className="contactForm__actions">
-        <button type="submit">
-          {buttonLabel}
+        <button type="submit" disabled={isSubmitting}>
+          {isSubmitting ? "Enviando..." : buttonLabel}
         </button>
       </div>
 

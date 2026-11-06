@@ -210,8 +210,14 @@ http://localhost:5173
 Esta versión no realiza peticiones al backend:
 
 - Los proyectos se cargan desde `src/data/fallbackProjects.js`.
-- El formulario de contacto valida en cliente y abre el cliente de correo con el mensaje preparado.
+- El formulario de contacto envía los mensajes mediante [Web3Forms](https://web3forms.com/) al email configurado.
 - Las rutas `/login` y `/admin` redirigen a la home.
+
+### Configurar el formulario
+
+1. Crea una access key gratuita en Web3Forms para `elenaalmansacampos@gmail.com`.
+2. En GitHub, añade `VITE_WEB3FORMS_KEY` en `Settings > Secrets and variables > Actions > Variables`.
+3. Relanza el workflow de GitHub Pages.
 
 El backend queda preparado en el repositorio `mi-portofolio-backend` para una futura reconexión.
 

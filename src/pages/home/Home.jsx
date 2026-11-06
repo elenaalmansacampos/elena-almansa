@@ -173,14 +173,6 @@ function Home() {
             mantenimiento y gestión de sitios web corporativos.
             Actualmente estoy ampliando mi perfil como desarrolladora
             Full Stack creando aplicaciones web completas.
-
-          </p>
-
-
-
-
-          <p>
-
             Me apasiona aprender nuevas tecnologías, resolver problemas
             y crear soluciones digitales funcionales y accesibles.
 
