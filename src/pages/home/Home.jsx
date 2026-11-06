@@ -22,7 +22,9 @@ import {
 
 import {
   SiSpringboot,
-  SiPostgresql
+  SiPostgresql,
+  SiPython,
+  SiDocker
 } from "react-icons/si";
 
 
@@ -135,11 +137,14 @@ function Home() {
 
 
           <Tag>
+            <strong>
+              20+
+              <br />
+            </strong>
 
-            20+
-            <br />
-            años de experiencia
-
+            <span>
+              años de experiencia
+            </span>
           </Tag>
 
 
@@ -268,6 +273,18 @@ function Home() {
           <TechCard
             name="PostgreSQL"
             icon={<SiPostgresql />}
+          />
+
+
+          <TechCard
+            name="Python"
+            icon={<SiPython />}
+          />
+
+
+          <TechCard
+            name="Docker"
+            icon={<SiDocker />}
           />
 
 

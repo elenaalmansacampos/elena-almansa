@@ -1,21 +1,11 @@
 import "./Tag.scss";
 
-function Tag() {
-
+function Tag({ children }) {
   return (
     <div className="tag">
-
-      <strong>
-        20+<br></br>
-      </strong>
-
-      <span>
-        años de experiencia
-      </span>
-
+      {children}
     </div>
   );
-
 }
 
 export default Tag;
