@@ -57,7 +57,7 @@ function Home() {
 
           <h1 className="hero__title">
 
-            Desarrolladora Full Stack Junior
+            Desarrolladora Full Stack
 
           </h1>
 
