@@ -62,6 +62,11 @@ Repositorio backend:
 
 - 🐍 Python
 - 🐳 Docker
+- ☁️ Microsoft Azure
+- 📈 Monitorización
+- 🔐 Identidad
+- 📊 Application Insights
+- 🟣 ASP.NET
 
 
 ---

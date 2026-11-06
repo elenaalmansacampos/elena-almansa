@@ -18,14 +18,22 @@ import {
   FaReact,
   FaJava,
   FaGithub,
+  FaMicrosoft,
 } from "react-icons/fa";
 
 import {
   SiSpringboot,
   SiPostgresql,
   SiPython,
-  SiDocker
+  SiDocker,
+  SiDotnet
 } from "react-icons/si";
+
+import {
+  FaChartArea,
+  FaChartLine,
+  FaFingerprint
+} from "react-icons/fa6";
 
 
 
@@ -277,6 +285,36 @@ function Home() {
           <TechCard
             name="Docker"
             icon={<SiDocker />}
+          />
+
+
+          <TechCard
+            name="Microsoft Azure"
+            icon={<FaMicrosoft />}
+          />
+
+
+          <TechCard
+            name="Monitorización"
+            icon={<FaChartLine />}
+          />
+
+
+          <TechCard
+            name="Identidad"
+            icon={<FaFingerprint />}
+          />
+
+
+          <TechCard
+            name="Application Insights"
+            icon={<FaChartArea />}
+          />
+
+
+          <TechCard
+            name="ASP.NET"
+            icon={<SiDotnet />}
           />
 
 
