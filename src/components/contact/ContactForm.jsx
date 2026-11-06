@@ -102,6 +102,12 @@ function ContactForm({ className = "", buttonLabel = "Enviar mensaje" }) {
           type: "error",
           message: "Revisa los datos del formulario."
         });
+      } else if (!requestError.response) {
+        setStatus({
+          type: "error",
+          message:
+            "El formulario no está disponible ahora mismo. Escríbeme a elenaalmansacampos@gmail.com."
+        });
       } else {
         setStatus({
           type: "error",
