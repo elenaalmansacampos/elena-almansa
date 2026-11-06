@@ -58,6 +58,12 @@ Repositorio backend:
 🔗 https://github.com/elenaalmansacampos/mi-portofolio-backend
 
 
+## Otros stacks mostrados en la home
+
+- 🐍 Python
+- 🐳 Docker
+
+
 ---
 
 # ✨ Funcionalidades
@@ -122,6 +128,21 @@ E-commerce frontend con catálogo de productos, carrito y gestión mediante Java
 ### 🎮 TicTacToe
 
 Juego interactivo desarrollado para practicar lógica JavaScript y manipulación del DOM.
+
+
+### 🤝 Fundación Verisure
+
+Aplicación React para el programa de voluntariado: actividades, inscripciones, propuestas, entidades colaboradoras y dashboard de impacto.
+
+
+### 🌟 Servido Hackathon Stellar
+
+SaaS multi-tenant para bares y restaurantes con pagos en USDC sobre Stellar, donaciones redondeadas y contrato Soroban.
+
+
+### 🏋️ Athletica Gestión de Gimnasio
+
+Aplicación de gestión de socios, membresías, clases y reservas con API FastAPI + PostgreSQL y frontend React.
 
 
 ---
@@ -287,17 +308,18 @@ El diseño está basado en una estética minimalista y profesional:
 | `npm run check:bundle` | Verifica el presupuesto de rendimiento |
 | `npm run test:e2e` | Tests E2E con Playwright |
 
-La autenticación usa access token en memoria y refresh token en cookie `HttpOnly`. El interceptor de Axios renueva la sesión automáticamente.
+El formulario de contacto se envía a Web3Forms; el sitio no utiliza autenticación ni backend.
 
 ---
 
 # 📌 Próximas mejoras
 
 
-- [ ] Deploy frontend
-- [ ] Deploy backend
-- [ ] Formulario conectado a API
-- [ ] Panel administrador de proyectos
+- [x] Deploy frontend en GitHub Pages
+- [x] Formulario de contacto con Web3Forms
+- [ ] Captcha antispam
+- [ ] Dominio propio
+- [ ] Páginas de detalle de proyecto
 - [ ] Mejoras de animaciones UX
 
 
