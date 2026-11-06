@@ -1,5 +1,20 @@
 export const fallbackProjects = [
   {
+    id: 14,
+    title: "Fundación Verisure",
+    slug: "fundacion-verisure",
+    description:
+      "Aplicación React para gestionar el programa de voluntariado de Fundación Verisure: catálogo de actividades, inscripciones, propuestas, cierres, entidades colaboradoras y dashboard de impacto.",
+    technologies:
+      "React, JavaScript, Vite, SCSS, React Router, Axios, Vitest",
+    imageUrl: "",
+    githubUrl: "https://github.com/Proyecto-Fundacion-Verisure/frontend",
+    demoUrl: "",
+    featured: true,
+    displayOrder: 5,
+    createdAt: "2026-11-06T00:00:00"
+  },
+  {
     id: 6,
     title: "TicTacToe",
     slug: "tictactoe-6",

@@ -18,6 +18,9 @@ test("la home carga y permite navegar a proyectos", async ({ page }) => {
 test("la home muestra proyectos aunque la API no esté disponible", async ({ page }) => {
   await page.goto("/");
 
+  await expect(
+    page.getByRole("heading", { name: "Fundación Verisure" })
+  ).toBeVisible();
   await expect(page.getByText("TicTacToe")).toBeVisible();
 });
 
