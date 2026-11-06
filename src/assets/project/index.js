@@ -8,6 +8,7 @@ import cinephile from "./cinephile.jpg";
 import visualesHydra from "./visuales-hydra.jpg";
 import servido from "./servido.jpg";
 import athletica from "./athletica.jpg";
+import fundacionVerisure from "./fundacion-verisure.jpg";
 
 const imageByTitle = {
   "mundo tech": mundoTech,
@@ -19,7 +20,8 @@ const imageByTitle = {
   cinephile: cinephile,
   "visuales hydra": visualesHydra,
   "servido hackathon stellar": servido,
-  "athletica gestión de gimnasio": athletica
+  "athletica gestión de gimnasio": athletica,
+  "fundación verisure": fundacionVerisure
 };
 
 export const defaultProjectImage = portfolio;
