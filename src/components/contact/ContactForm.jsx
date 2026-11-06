@@ -90,22 +90,23 @@ function ContactForm({ className = "", buttonLabel = "Enviar mensaje" }) {
     setStatus(null);
 
     try {
+      const payload = new URLSearchParams({
+        access_key: WEB3FORMS_ACCESS_KEY,
+        subject: "Nuevo mensaje desde el portfolio",
+        from_name: "Portfolio Elena Almansa",
+        name: form.name.trim(),
+        email: form.email.trim(),
+        replyto: form.email.trim(),
+        message: form.message.trim(),
+        botcheck: honey
+      });
+
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
           Accept: "application/json"
         },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_ACCESS_KEY,
-          subject: "Nuevo mensaje desde el portfolio",
-          from_name: "Portfolio Elena Almansa",
-          name: form.name.trim(),
-          email: form.email.trim(),
-          replyto: form.email.trim(),
-          message: form.message.trim(),
-          botcheck: honey
-        })
+        body: payload
       });
 
       const data = await response.json().catch(() => ({}));
